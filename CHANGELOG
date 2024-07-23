@@ -1,0 +1,10 @@
+# 1.0.0 (2024-07-22)
+
+- New login / register -> flight-info / logout module
+- Angular 18, standalone component 
+- Use Firebase Authentication
+- unit test 80%
+
+# x.x.x (yyyy-mm-dd)
+
+- (Insert changes here.)

@@ -1,0 +1,15 @@
+<!-- app.component.html -->
+<div class="app-container">
+  <div *ngIf="!authService.currentUserSig()" class="auth-links">
+    <a routerLink="/login" class="btn btn-primary">Login</a>
+    <a routerLink="/register" class="btn btn-success">Register</a>
+  </div>
+
+  <div *ngIf="authService.currentUserSig() " class="user-info">
+    User logged in: {{ authService.currentUserSig()?.email || 'No Email Found!' }}
+    <span (click)="logout()" class="logout-btn">Logout</span>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>

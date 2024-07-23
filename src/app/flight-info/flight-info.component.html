@@ -1,0 +1,60 @@
+@if (authService.currentUserSig()){
+
+<div class="flight-info-container">
+    <h1 class="page-title">Flight Info</h1>
+
+    <!-- Show success message if the form was successfully submitted -->
+    <div *ngIf="formSubmitted && formSuccess" class="success-message">
+        Form submitted successfully!
+    </div>
+
+    <!-- Show error message if there was an issue with form submission -->
+    <div *ngIf="formSubmitted && formError" class="error-message">
+        Error submitting the form. Please try again.
+    </div>
+
+    <!-- Show invalid form message -->
+    <div *ngIf="formSubmitted && flightForm.invalid" class="error-message">
+        Form is invalid. Please check the required fields.
+    </div>
+
+    <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+        <div>
+            <label for="airline">Airline:<span class="required">*</span></label>
+            <input id="airline" formControlName="airline" type="text" class="required-input"
+                [class.invalid]="flightForm.get('airline')?.invalid && flightForm.get('airline')?.touched" />
+        </div>
+
+        <div>
+            <label for="arrivalDate">Arrival Date:<span class="required">*</span></label>
+            <input id="arrivalDate" formControlName="arrivalDate" type="date" class="required-input"
+                [class.invalid]="flightForm.get('arrivalDate')?.invalid && flightForm.get('arrivalDate')?.touched" />
+        </div>
+
+        <div>
+            <label for="arrivalTime">Arrival Time:<span class="required">*</span></label>
+            <input id="arrivalTime" formControlName="arrivalTime" type="time" class="required-input"
+                [class.invalid]="flightForm.get('arrivalTime')?.invalid && flightForm.get('arrivalTime')?.touched" />
+        </div>
+
+        <div>
+            <label for="flightNumber">Flight Number:<span class="required">*</span></label>
+            <input id="flightNumber" formControlName="flightNumber" type="text" class="required-input"
+                [class.invalid]="flightForm.get('flightNumber')?.invalid && flightForm.get('flightNumber')?.touched" />
+        </div>
+
+        <div>
+            <label for="numOfGuests">Number of Guests:<span class="required">*</span></label>
+            <input id="numOfGuests" formControlName="numOfGuests" type="number" class="required-input"
+                [class.invalid]="flightForm.get('numOfGuests')?.invalid && flightForm.get('numOfGuests')?.touched" />
+        </div>
+
+        <div>
+            <label for="comments">Comments:</label>
+            <textarea id="comments" formControlName="comments"></textarea>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+}

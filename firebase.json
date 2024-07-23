@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/simple-login-app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
